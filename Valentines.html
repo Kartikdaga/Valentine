@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Valentine 💖</title>
+
+    <style>
+        body {
+            height: 100vh;
+            margin: 0;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-family: Arial, sans-serif;
+            background: #ffe6ea;
+            overflow: hidden;
+        }
+
+        .container {
+            text-align: center;
+        }
+
+        h1 {
+            font-size: 2.5rem;
+            color: #d6336c;
+        }
+
+        button {
+            font-size: 1.2rem;
+            padding: 12px 28px;
+            margin: 20px;
+            border: none;
+            border-radius: 10px;
+            cursor: pointer;
+            transition: transform 0.2s ease;
+        }
+
+        #yes {
+            background-color: #ff4d6d;
+            color: white;
+        }
+
+        #no {
+            background-color: #adb5bd;
+            color: white;
+            position: absolute;
+        }
+    </style>
+</head>
+
+<body>
+
+<div class="container" id="content">
+    <h1>Will you be my Valentine?? 💘</h1>
+    <button id="yes">Yes</button>
+    <button id="no">No</button>
+</div>
+
+<script>
+    const noBtn = document.getElementById("no");
+    const yesBtn = document.getElementById("yes");
+    const content = document.getElementById("content");
+
+    let yesScale = 1;
+
+    noBtn.addEventListener("mouseenter", () => {
+        // Random position for NO button
+        const maxX = window.innerWidth - noBtn.offsetWidth;
+        const maxY = window.innerHeight - noBtn.offsetHeight;
+
+        noBtn.style.left = Math.random() * maxX + "px";
+        noBtn.style.top = Math.random() * maxY + "px";
+
+        // Increase YES size by 20%
+        yesScale *= 1.2;
+        yesBtn.style.transform = `scale(${yesScale})`;
+    });
+
+    yesBtn.addEventListener("click", () => {
+    content.innerHTML = `
+        <h1>I knew it, what else would you do 😌❤️</h1>
+        <p style="font-size:1.4rem; color:#6c757d;">
+            Now you’re officially my Valentine Riyu💕
+        </p>
+    `;
+});
+</script>
+
+</body>
+</html>
